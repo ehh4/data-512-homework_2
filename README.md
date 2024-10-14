@@ -28,7 +28,17 @@ The starter code is adpated from Dr. McDonald's example notebooks, wp_page_info_
 All other code not designated as starter code from Dr. McDonald is created by Elizabeth Holden and licensed [CC-BY](https://creativecommons.org/licenses/by/4.0/).
 
 ### Files
-HCD-HW2.ipynb is the notebook containing all project code, produces the no_score.csv file which contains a column 'name' which are names of the articles (type str) that had no ORES score available. Within the HCD-HW2.ipynb file a score error rate is printed which is the ratio of articles with no ores score to total number of articles. There are also the 6 analysis tables printed in the notebook which are described in the Project Goal section of this README.
+HCD-HW2.ipynb is the notebook containing all project code and produces the following files:
+- no_score.csv: This is a file containing a columm 'name' (type str) that has the name of articles that I was not able to get a ORES score for. Some did not get a score because I was not able to get a last revision id for them and some I was not able to get an ORES score for them.
+- wp_politicians_by_country.csv: This is a file containing the final merged dataset that was used for the analysis. The file contains the following columns:
+    - country (type str)
+    - region (type str)
+    - population (type float64)
+    - article_title (type str)
+    - revision_id (type int64)
+    - article_quality (type str)
+- wp_countries-no_match.txt: This is a file containing a list of countries, each on a seperate line, that correspond to entries that could not be merged, either the population dataset does not have an entry for the equivalent Wikipedia country, or vice-versa
+
 
 
 ### Research Implications
