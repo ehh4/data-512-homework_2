@@ -42,12 +42,29 @@ HCD-HW2.ipynb is the notebook containing all project code and produces the follo
 
 
 ### Research Implications
+Reflection:
+
+This assignment was an interesting way to look at bias because, while there is bias here in the data that we found, I think that there is bias in the way that we are looking at the data also. When looking at the countries with the highest articles per capita and the countries with the least amount of articles per capita, the countries with the highest articles are the countries with some of the smallest populations and the lowest articles per capita are the countries with some of the highest populations. I am not sure if we can say yes or no there is bias based on this because obviously larger population countries are going to have less articles per capita when the population is so large. Another thought I had during this was that some countries are a lot older than other countries and each country has very different govenment structures that have different numbers of people in politics, so all these factors combined can give very different results for countries. Additionally, There were a lot of countries with 0 high quality articles, and after looking at this list, many of these countries are third would countries, so I do think that the high quality articles are more biased towards more western and developed countries.
 
 
+What biases did you expect to find in the data (before you started working with it), and why?
 
-### Considerations:
+I expected for countries that are less developed, like third world countries, to have less articles available. Not only did I expect for there to be less articles overall, but also less high quality articles due to less information being readily available. Not all third world countries have large broadcasts of information available which is why I thought this. Additionally, if a country is not well developed and does not have a well developed govenment system then there may be less politicians in general and therefore less articles about these politicans available on Wikipedia. One last bias I thought there would be is a bias towards English speaking countries since we were looking at English Wikioedia.
+
+What (potential) sources of bias did you discover in the course of your data processing and analysis?
+
+I found that from the data that we were given, the data is bias towards underdeveloped countries. The countries that had 0 high quality articles were a majority underdeveloped countries, a lot from Africa.Additonally, not all countries have a representative amount of politicians represented in the dataset. Many large countries have a large government system because they have a large population, yet this is not represented in the politician dataset. We can see this in China, it is one of the largest population countries in the world with a very large number of politicians yet there are only 16 politician articles in the given dataset. This small number of articles divided by the large population makes China the country with the lowest articles per capita.
+
+Can you think of a realistic data science research situation where using these data (to train a model, perform a hypothesis-driven research, or make business decisions) might create biased or misleading results, due to the inherent gaps and limitations of the data?
+
+If someone was trying to make a business decision around what country would be best to start a political magazine in, using this data would result in very misleading results. The results would be misleading because if the business decision makers were looking at articles per capita to base their decision on, they would see really small countries with the highest articles per capita which is misleading since these countries most likely have a smaller number of government representatives and therefore a smaller number of polticians to contribute to their magazine.
+
+
+### Considerations
 - The no_score.csv file contains the names of articles that did not have ORES scores, some of these did not have ORES scores due to not having a last revision id returned from the pageinfo request so I was not able to call the ORES API for them and some did not have an ORES score due to the ORES API request not returning one. The breakdown of this can be seen in the lists in the notebook used to create the no_score.csv file
-- There are politicians that are listed multiple times for different countries in the politicians_by_country_AUG.2024.csv, I am chosing to leave these in because after researching some, I found that they may have been a politician in a country that was made up of multiple of the current countries at the time they were serving thier term. A list of these are printed and noted in the HCD-HW2.ipynb file.
+- There are politicians that are listed multiple times for different countries in the politicians_by_country_AUG.2024.csv, I am chosing to leave these in because after researching some, I found that they may have been a politician in a country that was made up of multiple of the current countries at the time they were serving their term. A list of these are printed and noted in the HCD-HW2.ipynb file.
 - All population values are in millions and articles per capita values are articles per million people.
 - There are 66 countries with 0 high quality articles, therefore these all are the countries with the lowest high quality articles per capita, so instead of a table of 10, I printed all 66 of these countries since they all have 0 as a value for high quality articles per capita
+- When calculating the articles per capita, there are countries with 0.0 population due to the population being in millions, I chose to fill these with NaN for the sake of calculations.
+- At first GuineaBissue and South Korea were in the no match list due to being formatted differently in the 2 datasets, so I renamed the countries so that these could match.
 
