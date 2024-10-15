@@ -39,6 +39,14 @@ HCD-HW2.ipynb is the notebook containing all project code and produces the follo
     - article_quality (type str)
 - wp_countries-no_match.txt: This is a file containing a list of countries, each on a seperate line, that correspond to entries that could not be merged, either the population dataset does not have an entry for the equivalent Wikipedia country, or vice-versa
 
+### Considerations
+- The no_score.csv file contains the names of articles that did not have ORES scores, some of these did not have ORES scores due to not having a last revision id returned from the pageinfo request so I was not able to call the ORES API for them and some did not have an ORES score due to the ORES API request not returning one. The breakdown of this can be seen in the lists in the notebook used to create the no_score.csv file
+- There are politicians that are listed multiple times for different countries in the politicians_by_country_AUG.2024.csv, I am chosing to leave these in because after researching some, I found that they may have been a politician in a country that was made up of multiple of the current countries at the time they were serving their term. A list of these are printed and noted in the HCD-HW2.ipynb file.
+- All population values are in millions and articles per capita values are articles per million people.
+- There are 66 countries with 0 high quality articles, therefore these all are the countries with the lowest high quality articles per capita, so instead of a table of 10, I printed all 66 of these countries since they all have 0 as a value for high quality articles per capita
+- When calculating the articles per capita, there are countries with 0.0 population due to the population being in millions, I chose to fill these with NaN for the sake of calculations.
+- At first GuineaBissue and South Korea were in the no match list due to being formatted differently in the 2 datasets, so I renamed the countries so that these could match.
+
 
 
 ### Research Implications
@@ -59,12 +67,4 @@ Can you think of a realistic data science research situation where using these d
 
 If someone was trying to make a business decision around what country would be best to start a political magazine in, using this data would result in very misleading results. The results would be misleading because if the business decision makers were looking at articles per capita to base their decision on, they would see really small countries with the highest articles per capita which is misleading since these countries most likely have a smaller number of government representatives and therefore a smaller number of polticians to contribute to their magazine.
 
-
-### Considerations
-- The no_score.csv file contains the names of articles that did not have ORES scores, some of these did not have ORES scores due to not having a last revision id returned from the pageinfo request so I was not able to call the ORES API for them and some did not have an ORES score due to the ORES API request not returning one. The breakdown of this can be seen in the lists in the notebook used to create the no_score.csv file
-- There are politicians that are listed multiple times for different countries in the politicians_by_country_AUG.2024.csv, I am chosing to leave these in because after researching some, I found that they may have been a politician in a country that was made up of multiple of the current countries at the time they were serving their term. A list of these are printed and noted in the HCD-HW2.ipynb file.
-- All population values are in millions and articles per capita values are articles per million people.
-- There are 66 countries with 0 high quality articles, therefore these all are the countries with the lowest high quality articles per capita, so instead of a table of 10, I printed all 66 of these countries since they all have 0 as a value for high quality articles per capita
-- When calculating the articles per capita, there are countries with 0.0 population due to the population being in millions, I chose to fill these with NaN for the sake of calculations.
-- At first GuineaBissue and South Korea were in the no match list due to being formatted differently in the 2 datasets, so I renamed the countries so that these could match.
 
